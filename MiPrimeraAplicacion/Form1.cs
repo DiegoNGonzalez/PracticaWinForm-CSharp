@@ -31,14 +31,22 @@ namespace MiPrimeraAplicacion
         {
             //MessageBox.Show("Se disparo el evento Click", "Atención");
             //this.BackColor = Color.LightGoldenrodYellow;
-            MouseEventArgs click = (MouseEventArgs)e;
-            if (click.Button == MouseButtons.Left)
-                MessageBox.Show("Presiono el botón Izquierdo", "Atención");
-            else if (click.Button == MouseButtons.Right)
-                MessageBox.Show("Presiono el Botón Derecho", "Atención");
+            //MouseEventArgs click = (MouseEventArgs)e;
+            //if (click.Button == MouseButtons.Left)
+            //    MessageBox.Show("Presiono el botón Izquierdo", "Atención");
+            //else if (click.Button == MouseButtons.Right)
+            //    MessageBox.Show("Presiono el Botón Derecho", "Atención");
+            //else
+            //if (click.Button == MouseButtons.Middle)
+            //    MessageBox.Show("Presiono el botón del Medio", "Atención");
+            if (txtApellido.Text == "")
+            {
+                txtApellido.BackColor = Color.Red;
+            }
             else
-            if (click.Button == MouseButtons.Middle)
-                MessageBox.Show("Presiono el botón del Medio", "Atención");
+            {
+                txtApellido.BackColor = System.Drawing.SystemColors.Control;
+            }
         }
 
         private void lbl1_MouseMove(object sender, MouseEventArgs e)
@@ -51,6 +59,17 @@ namespace MiPrimeraAplicacion
         {
             lbl1.BackColor = System.Drawing.SystemColors.Control;
             lbl1.Cursor = Cursors.Arrow;
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((e.KeyChar<48 ||  e.KeyChar>59)&& e.KeyChar!=8)
+                e.Handled = true;
+        }
+
+        private void txtNuevo_Leave(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tiene "+txtNuevo.Text.Length+" caracteres.");
         }
     }
 }
