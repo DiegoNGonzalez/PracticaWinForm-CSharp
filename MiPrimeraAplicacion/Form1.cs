@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace MiPrimeraAplicacion
 {
-    public partial class Form1 : Form
+    public partial class Formulario : Form
     {
-        public Form1()
+        public Formulario()
         {
             InitializeComponent();
+        }
+
+        private void Formulario_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bienvenidos a C#");
+        }
+
+        private void Formulario_FormClosed (object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("Chau chau...");
         }
     }
 }
